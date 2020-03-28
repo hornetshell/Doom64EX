@@ -506,6 +506,7 @@ void GL_BindSpriteTexture(int spritenum, int pal) {
 
     dglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, DGL_CLAMP);
     dglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, DGL_CLAMP);
+    GL_SetTextureFilter();
 
     SetTextureImage((byte*) image, 4, &w, &h, GL_RGBA8, GL_RGBA);
     free(image);
