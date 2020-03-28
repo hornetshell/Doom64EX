@@ -1182,7 +1182,7 @@ static void ST_DrawChatText(void) {
     if(st_chatOn) {
         char tmp[MAXCHATSIZE];
 
-        sprintf(tmp, "%s_", st_chatstring[consoleplayer]);
+        sprintf(tmp, "%s", st_chatstring[consoleplayer]);
         Draw_Text(STCHATX, STCHATY + 8, WHITE, 0.5f, false, tmp);
     }
 }

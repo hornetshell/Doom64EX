@@ -16,3 +16,6 @@
 # conan
 conanbuildinfo.cmake
 conaninfo.txt
+
+# vscode
+.vscode/

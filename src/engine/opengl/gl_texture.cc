@@ -485,6 +485,7 @@ void GL_BindSpriteTexture(int spritenum, int pal) {
         dglBindTexture(GL_TEXTURE_2D, spriteptr[spritenum][pal]);
         dglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, DGL_CLAMP);
         dglTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, DGL_CLAMP);
+        GL_SetTextureFilter();
         if(devparm) {
             glBindCalls++;
         }
