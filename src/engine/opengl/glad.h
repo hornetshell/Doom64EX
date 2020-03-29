@@ -127,18 +127,18 @@ typedef unsigned __int64 uint64_t;
 #include <inttypes.h>
 #endif
 #endif
-typedef unsigned int GLenum;
+typedef uint32_t GLenum;
 typedef unsigned char GLboolean;
-typedef unsigned int GLbitfield;
+typedef uint32_t GLbitfield;
 typedef void GLvoid;
 typedef signed char GLbyte;
-typedef short GLshort;
-typedef int GLint;
-typedef int GLclampx;
+typedef int16_t GLshort;
+typedef int32_t GLint;
+typedef int32_t GLclampx;
 typedef unsigned char GLubyte;
-typedef unsigned short GLushort;
-typedef unsigned int GLuint;
-typedef int GLsizei;
+typedef uint16_t GLushort;
+typedef uint32_t GLuint;
+typedef int32_t GLsizei;
 typedef float GLfloat;
 typedef float GLclampf;
 typedef double GLdouble;
@@ -149,10 +149,10 @@ typedef char GLcharARB;
 #ifdef __APPLE__
 typedef void *GLhandleARB;
 #else
-typedef unsigned int GLhandleARB;
+typedef uint32_t GLhandleARB;
 #endif
-typedef unsigned short GLhalfARB;
-typedef unsigned short GLhalf;
+typedef uint16_t GLhalfARB;
+typedef uint16_t GLhalf;
 typedef GLint GLfixed;
 typedef ptrdiff_t GLintptr;
 typedef ptrdiff_t GLsizeiptr;
@@ -169,7 +169,7 @@ typedef void (APIENTRY *GLDEBUGPROC)(GLenum source,GLenum type,GLuint id,GLenum 
 typedef void (APIENTRY *GLDEBUGPROCARB)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);
 typedef void (APIENTRY *GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);
 typedef void (APIENTRY *GLDEBUGPROCAMD)(GLuint id,GLenum category,GLenum severity,GLsizei length,const GLchar *message,void *userParam);
-typedef unsigned short GLhalfNV;
+typedef uint16_t GLhalfNV;
 typedef GLintptr GLvdpauSurfaceNV;
 #define GL_DEPTH_BUFFER_BIT 0x00000100
 #define GL_STENCIL_BUFFER_BIT 0x00000400
