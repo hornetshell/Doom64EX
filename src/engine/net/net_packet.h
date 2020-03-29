@@ -32,9 +32,9 @@ net_packet_t *NET_NewPacket(int initial_size);
 net_packet_t *NET_PacketDup(net_packet_t *packet);
 void NET_FreePacket(net_packet_t *packet);
 
-dboolean NET_ReadInt8(net_packet_t *packet, unsigned int *data);
-dboolean NET_ReadInt16(net_packet_t *packet, unsigned int *data);
-dboolean NET_ReadInt32(net_packet_t *packet, unsigned int *data);
+dboolean NET_ReadInt8(net_packet_t *packet, uint32_t *data);
+dboolean NET_ReadInt16(net_packet_t *packet, uint32_t *data);
+dboolean NET_ReadInt32(net_packet_t *packet, uint32_t *data);
 
 dboolean NET_ReadSInt8(net_packet_t *packet, signed int *data);
 dboolean NET_ReadSInt16(net_packet_t *packet, signed int *data);
@@ -42,9 +42,9 @@ dboolean NET_ReadSInt32(net_packet_t *packet, signed int *data);
 
 char *NET_ReadString(net_packet_t *packet);
 
-void NET_WriteInt8(net_packet_t *packet, unsigned int i);
-void NET_WriteInt16(net_packet_t *packet, unsigned int i);
-void NET_WriteInt32(net_packet_t *packet, unsigned int i);
+void NET_WriteInt8(net_packet_t *packet, uint32_t i);
+void NET_WriteInt16(net_packet_t *packet, uint32_t i);
+void NET_WriteInt32(net_packet_t *packet, uint32_t i);
 
 void NET_WriteString(net_packet_t *packet, StringView string);
 

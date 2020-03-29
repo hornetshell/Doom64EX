@@ -177,7 +177,7 @@ static void NET_Conn_ParseReject(net_connection_t *conn, net_packet_t *packet)
 
 static void NET_Conn_ParseReliableACK(net_connection_t *conn, net_packet_t *packet)
 {
-    unsigned int seq;
+    uint32_t seq;
 
     if (!NET_ReadInt8(packet, &seq))
     {
@@ -213,7 +213,7 @@ static void NET_Conn_ParseReliableACK(net_connection_t *conn, net_packet_t *pack
 static dboolean NET_Conn_ReliablePacket(net_connection_t *conn, 
                                        net_packet_t *packet)
 {
-    unsigned int seq;
+    uint32_t seq;
     net_packet_t *reply;
     dboolean result;
 
@@ -265,7 +265,7 @@ static dboolean NET_Conn_ReliablePacket(net_connection_t *conn,
 // Returns true if eaten by common code
 
 dboolean NET_Conn_Packet(net_connection_t *conn, net_packet_t *packet, 
-                        unsigned int *packet_type)
+                        uint32_t *packet_type)
 {
     conn->keepalive_recv_time = I_GetTimeMS();
 
@@ -332,7 +332,7 @@ void NET_Conn_Disconnect(net_connection_t *conn)
 void NET_Conn_Run(net_connection_t *conn)
 {
     net_packet_t *packet;
-    unsigned int nowtime;
+    uint32_t nowtime;
 
     nowtime = I_GetTimeMS();
 
@@ -493,10 +493,10 @@ net_packet_t *NET_Conn_NewReliable(net_connection_t *conn, int packet_type)
 // Used to expand the least significant byte of a tic number into 
 // the full tic number, from the current tic number
 
-unsigned int NET_ExpandTicNum(unsigned int relative, unsigned int b)
+unsigned int NET_ExpandTicNum(unsigned int relative, uint32_t b)
 {
-    unsigned int l, h;
-    unsigned int result;
+    uint32_t l, h;
+    uint32_t result;
 
     h = relative & ~0xff;
     l = relative & 0xff;

@@ -435,7 +435,7 @@ int pvsnfmt_str(pvsnfmt_vars *info, const char *s) {
 
 int pvsnfmt_int(pvsnfmt_vars *info, pvsnfmt_intparm_t *ip) {
     int number = 0;
-    unsigned int unumber = 0;
+    uint32_t unumber = 0;
     char numbersigned = 1;
     char iszero = 0; /* bool */
     int base = 10;   /* haleyjd: default to something valid */

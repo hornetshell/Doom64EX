@@ -62,8 +62,8 @@
 
 struct dirent {
     long          d_ino;    /* Always zero. */
-    unsigned short d_reclen; /* Always zero. */
-    unsigned short d_namlen; /* Length of name in d_name. */
+    uint16_t d_reclen; /* Always zero. */
+    uint16_t d_namlen; /* Length of name in d_name. */
     char           d_name[FILENAME_MAX]; /* File name. */
 };
 

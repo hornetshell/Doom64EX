@@ -70,7 +70,7 @@ extern int      starttime;
 //
 
 void G_ReadDemoTiccmd(ticcmd_t* cmd) {
-    unsigned int lowbyte;
+    uint32_t lowbyte;
 
     if(*demo_p == DEMOMARKER) {
         // end of demo data stream

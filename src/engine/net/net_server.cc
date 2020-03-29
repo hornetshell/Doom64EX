@@ -79,7 +79,7 @@ typedef struct
 
     // Latest acknowledged by the client
 
-    unsigned int acknowledged;
+    uint32_t acknowledged;
 
     // Observer: receives data but does not participate in the game.
 
@@ -105,7 +105,7 @@ typedef struct
 
     // Last time we sent a resend request for this tic
 
-    unsigned int resend_time;
+    uint32_t resend_time;
 
     // Tic data itself
 
@@ -117,13 +117,13 @@ static dboolean server_initialised = false;
 static net_client_t clients[MAXNETNODES];
 static net_client_t *sv_players[MAXPLAYERS];
 static net_context_t *server_context;
-static unsigned int sv_gamemode;
-static unsigned int sv_gamemission;
+static uint32_t sv_gamemode;
+static uint32_t sv_gamemission;
 static net_gamesettings_t sv_settings;
 
 // receive window
 
-static unsigned int recvwindow_start;
+static uint32_t recvwindow_start;
 static net_client_recv_t recvwindow[BACKUPTICS][MAXPLAYERS];
 
 #define NET_SV_ExpandTicNum(b) NET_ExpandTicNum(recvwindow_start, (b))
@@ -282,9 +282,9 @@ static int NET_SV_NumClients(void)
 // Find the latest tic which has been acknowledged as received by
 // all clients.
 
-static unsigned int NET_SV_LatestAcknowledged(void)
+static uint32_t NET_SV_LatestAcknowledged(void)
 {
-    unsigned int lowtic = UINT_MAX;
+    uint32_t lowtic = UINT_MAX;
     int i;
 
     for (i=0; i<MAXNETNODES; ++i) 
@@ -307,7 +307,7 @@ static unsigned int NET_SV_LatestAcknowledged(void)
 
 static void NET_SV_AdvanceWindow(void)
 {
-    unsigned int lowtic;
+    uint32_t lowtic;
     int i;
 
     if (NET_SV_NumPlayers() <= 0)
@@ -439,10 +439,10 @@ static void NET_SV_ParseSYN(net_packet_t *packet,
                             net_client_t *client,
                             net_addr_t *addr)
 {
-    unsigned int magic;
-    unsigned int cl_gamemode=0, cl_gamemission=0;
-    unsigned int cl_recording_lowres=0;
-    unsigned int cl_drone;
+    uint32_t magic;
+    uint32_t cl_gamemode=0, cl_gamemission=0;
+    uint32_t cl_recording_lowres=0;
+    uint32_t cl_drone;
     md5_digest_t wad_md5sum;
     char *player_name;
     char *client_version;
@@ -706,7 +706,7 @@ static void NET_SV_SendResendRequest(net_client_t *client, int start, int end)
     net_packet_t *packet;
     net_client_recv_t *recvobj;
     int i;
-    unsigned int nowtime;
+    uint32_t nowtime;
     int index;
 
     //printf("SV: send resend for %i-%i\n", start, end);
@@ -748,7 +748,7 @@ static void NET_SV_CheckResends(net_client_t *client)
     int i;
     int player;
     int resend_start, resend_end;
-    unsigned int nowtime;
+    uint32_t nowtime;
 
     nowtime = I_GetTimeMS();
 
@@ -810,10 +810,10 @@ static void NET_SV_CheckResends(net_client_t *client)
 static void NET_SV_ParseGameData(net_packet_t *packet, net_client_t *client)
 {
     net_client_recv_t *recvobj;
-    unsigned int seq;
-    unsigned int ackseq;
-    unsigned int num_tics;
-    unsigned int nowtime;
+    uint32_t seq;
+    uint32_t ackseq;
+    uint32_t num_tics;
+    uint32_t nowtime;
     size_t i;
     int player;
     int resend_start, resend_end;
@@ -944,7 +944,7 @@ static void NET_SV_ParseGameData(net_packet_t *packet, net_client_t *client)
 
 static void NET_SV_ParseGameDataACK(net_packet_t *packet, net_client_t *client)
 {
-    unsigned int ackseq;
+    uint32_t ackseq;
 
     if (server_state != SERVER_IN_GAME)
     {
@@ -971,10 +971,10 @@ static void NET_SV_ParseGameDataACK(net_packet_t *packet, net_client_t *client)
 }
 
 static void NET_SV_SendTics(net_client_t *client, 
-                            unsigned int start, unsigned int end)
+                            uint32_t start, uint32_t end)
 {
     net_packet_t *packet;
-    unsigned int i;
+    uint32_t i;
 
     packet = NET_NewPacket(500);
 
@@ -1014,9 +1014,9 @@ static void NET_SV_SendTics(net_client_t *client,
 
 static void NET_SV_ParseResendRequest(net_packet_t *packet, net_client_t *client)
 {
-    unsigned int start, last;
-    unsigned int num_tics;
-    unsigned int i;
+    uint32_t start, last;
+    uint32_t num_tics;
+    uint32_t i;
 
     // Read the starting tic and number of tics
 
@@ -1127,7 +1127,7 @@ static void NET_SV_ParseCheatRequest(net_packet_t* packet, net_client_t *client)
 static void NET_SV_Packet(net_packet_t *packet, net_addr_t *addr)
 {
     net_client_t *client;
-    unsigned int packet_type;
+    uint32_t packet_type;
 
     // Find which client this packet came from
 

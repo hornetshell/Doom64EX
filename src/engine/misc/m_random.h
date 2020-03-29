@@ -90,13 +90,13 @@ enum {
 
 // The random number generator's state.
 typedef struct {
-    unsigned int seed[NUMPRCLASS];       // Each block's random seed
+    uint32_t seed[NUMPRCLASS];       // Each block's random seed
     int rndindex, prndindex;             // For compatibility support
 } rng_t;
 
 extern rng_t rng;                      // The rng's state
 
-extern unsigned int rngseed;           // The starting seed (not part of state)
+extern uint32_t rngseed;           // The starting seed (not part of state)
 
 // Returns a number from 0 to 255,
 // from a lookup table.

@@ -132,7 +132,7 @@ void NET_WriteTiccmdDiff(net_packet_t *packet, net_ticdiff_t *diff,
 
 dboolean NET_ReadTiccmdDiff(net_packet_t *packet, net_ticdiff_t *diff,
                             dboolean lowres_turn) {
-    unsigned int val;
+    uint32_t val;
     signed int sval;
 
     // Read header
@@ -252,7 +252,7 @@ void NET_TiccmdPatch(ticcmd_t *src, net_ticdiff_t *diff, ticcmd_t *dest) {
 // 
 
 dboolean NET_ReadFullTiccmd(net_packet_t *packet, net_full_ticcmd_t *cmd, dboolean lowres_turn) {
-    unsigned int bitfield;
+    uint32_t bitfield;
     int i;
 
     // Latency
@@ -285,7 +285,7 @@ dboolean NET_ReadFullTiccmd(net_packet_t *packet, net_full_ticcmd_t *cmd, dboole
 }
 
 void NET_WriteFullTiccmd(net_packet_t *packet, net_full_ticcmd_t *cmd, dboolean lowres_turn) {
-    unsigned int bitfield;
+    uint32_t bitfield;
     int i;
 
     // Write the latency
@@ -315,7 +315,7 @@ void NET_WriteFullTiccmd(net_packet_t *packet, net_full_ticcmd_t *cmd, dboolean 
 }
 
 dboolean NET_ReadMD5Sum(net_packet_t *packet, md5_digest_t digest) {
-    unsigned int b;
+    uint32_t b;
     int i;
 
     for (i = 0; i < 16; ++i) {

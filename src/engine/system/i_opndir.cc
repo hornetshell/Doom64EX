@@ -61,7 +61,7 @@
 //
 DIR *opendir(const _TCHAR *szPath) {
     DIR *nd;
-    unsigned int rc;
+    uint32_t rc;
     _TCHAR szFullPath[MAX_PATH];
 
     errno = 0;

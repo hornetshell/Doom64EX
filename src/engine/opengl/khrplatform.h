@@ -180,7 +180,7 @@ typedef unsigned __int64        khronos_uint64_t;
  * Sun or Digital
  */
 typedef int                     khronos_int32_t;
-typedef unsigned int            khronos_uint32_t;
+typedef uint32_t            khronos_uint32_t;
 #if defined(__arch64__) || defined(_LP64)
 typedef long int                khronos_int64_t;
 typedef unsigned long int       khronos_uint64_t;
@@ -197,7 +197,7 @@ typedef unsigned long long int  khronos_uint64_t;
  * Hypothetical platform with no float or int64 support
  */
 typedef int                     khronos_int32_t;
-typedef unsigned int            khronos_uint32_t;
+typedef uint32_t            khronos_uint32_t;
 #define KHRONOS_SUPPORT_INT64   0
 #define KHRONOS_SUPPORT_FLOAT   0
 
@@ -222,8 +222,8 @@ typedef uint64_t                khronos_uint64_t;
  */
 typedef signed   char          khronos_int8_t;
 typedef unsigned char          khronos_uint8_t;
-typedef signed   short int     khronos_int16_t;
-typedef unsigned short int     khronos_uint16_t;
+typedef int16_t     khronos_int16_t;
+typedef uint16_t     khronos_uint16_t;
 
 /*
  * Types that differ between LLP64 and LP64 architectures - in LLP64,

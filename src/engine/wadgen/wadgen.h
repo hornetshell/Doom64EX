@@ -49,7 +49,7 @@
 #pragma warning(disable:4996)
 
 typedef unsigned char byte;
-typedef unsigned short word;
+typedef uint16_t word;
 typedef int32_t int32;
 typedef uint32_t uint32;
 typedef uint32_t uint;
