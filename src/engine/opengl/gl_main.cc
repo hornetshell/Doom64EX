@@ -40,13 +40,13 @@
 #include "m_misc.h"
 #include "g_actions.h"
 
-int ViewWindowX = 0;
-int ViewWindowY = 0;
-int ViewWidth   = 0;
-int ViewHeight  = 0;
+int32_t ViewWindowX = 0;
+int32_t ViewWindowY = 0;
+int32_t ViewWidth   = 0;
+int32_t ViewHeight  = 0;
 
-int gl_max_texture_units;
-int gl_max_texture_size;
+int32_t gl_max_texture_units;
+int32_t gl_max_texture_size;
 dboolean gl_has_combiner;
 
 const char *gl_vendor;
@@ -56,7 +56,7 @@ const char *gl_version;
 static float glScaleFactor = 1.0f;
 
 dboolean    usingGL = false;
-int         DGL_CLAMP = GL_CLAMP;
+int32_t         DGL_CLAMP = GL_CLAMP;
 float       max_anisotropic = 0;
 dboolean    widescreen = false;
 
