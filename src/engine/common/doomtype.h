@@ -32,9 +32,9 @@
 #endif
 
 typedef bool            dboolean;
-typedef unsigned short  word;  // TODO: Rename every instance of 'word' to 'uint16'.
+typedef uint16_t  word;  // TODO: Rename every instance of 'word' to 'uint16'.
                                // 'Word' isn't the correct term unless you're writing for 16-bit systems, which we're not.
-typedef unsigned int    dword; // TODO: ditto, but 'dword' -> 'uint32'
+typedef uint32_t        dword; // TODO: ditto, but 'dword' -> 'uint32'
 
 #include <limits.h>
 #define D_MININT INT_MIN

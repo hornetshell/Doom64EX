@@ -43,7 +43,7 @@ typedef struct {
     const char *cheat;
     void (*const func)(player_t*, char[4]);
     const int arg;
-    unsigned int code, mask;
+    uint32_t code, mask;
 } cheatinfo_t;
 
 static void M_CheatFa(player_t* player, char dat[4]);

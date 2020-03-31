@@ -253,7 +253,7 @@ typedef struct mobj_s {
     fixed_t             frame_z;
 
     // [kex] mobj reference id
-    unsigned int        refcount;
+    uint32_t        refcount;
 
 } mobj_t;
 

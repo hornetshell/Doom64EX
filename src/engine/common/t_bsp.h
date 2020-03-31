@@ -309,7 +309,7 @@ typedef struct {
     fixed_t    bbox[2][4];
 
     // If NF_SUBSECTOR its a subsector.
-    unsigned short children[2];
+    uint16_t children[2];
 
 } node_t;
 

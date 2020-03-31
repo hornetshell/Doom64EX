@@ -101,8 +101,8 @@ void I_InitClockRate(void) {
 // FRAME INTERPOLTATION
 //
 
-static unsigned int start_displaytime;
-static unsigned int displaytime;
+static uint32_t start_displaytime;
+static uint32_t displaytime;
 static dboolean InDisplay = false;
 
 dboolean realframe = false;

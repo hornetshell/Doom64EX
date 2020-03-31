@@ -71,7 +71,7 @@ typedef struct
 
     // Last time we sent a resend request for this tic
 
-    unsigned int resend_time;
+    uint32_t resend_time;
 
     // Tic data from server 
 
@@ -89,11 +89,11 @@ typedef struct
 
     // The tic number
 
-    unsigned int seq;
+    uint32_t seq;
 
     // Time the command was generated
 
-    unsigned int time;
+    uint32_t time;
 
     // Ticcmd diff
 
@@ -167,7 +167,7 @@ static net_server_recv_t recvwindow[BACKUPTICS];
 // when gamedata was last received.
 
 static dboolean need_to_acknowledge;
-static unsigned int gamedata_recv_time;
+static uint32_t gamedata_recv_time;
 
 // Hash checksums of our wad directory and dehacked data.
 
@@ -235,7 +235,7 @@ static void NET_CL_Disconnected(void)
 // the d_net.c structures (netcmds/nettics) and save the new ticcmd
 // back into recvwindow_cmd_base.
 
-static void NET_CL_ExpandFullTiccmd(net_full_ticcmd_t *cmd, unsigned int seq)
+static void NET_CL_ExpandFullTiccmd(net_full_ticcmd_t *cmd, uint32_t seq)
 {
     int latency;
     fixed_t adjustment;
@@ -547,9 +547,9 @@ void NET_CL_SendTiccmd(ticcmd_t *ticcmd, int maketic)
 
 static void NET_CL_ParseWaitingData(net_packet_t *packet)
 {
-    unsigned int num_players;
-    unsigned int num_drones;
-    unsigned int is_controller;
+    uint32_t num_players;
+    uint32_t num_drones;
+    uint32_t is_controller;
     signed int player_number;
     char *player_names[MAXPLAYERS];
     char *player_addr[MAXPLAYERS];
@@ -621,9 +621,9 @@ static void NET_CL_ParseWaitingData(net_packet_t *packet)
 static void NET_CL_ParseGameStart(net_packet_t *packet)
 {
     net_gamesettings_t settings;
-    unsigned int num_players;
+    uint32_t num_players;
     signed int player_number;
-    unsigned int i;
+    uint32_t i;
 
     if (!NET_ReadInt8(packet, &num_players)
      || !NET_ReadSInt8(packet, &player_number)
@@ -711,7 +711,7 @@ static void NET_CL_ParseGameStart(net_packet_t *packet)
 static void NET_CL_SendResendRequest(int start, int end)
 {
     net_packet_t *packet;
-    unsigned int nowtime;
+    uint32_t nowtime;
     int i;
 
     //printf("CL: Send resend %i-%i\n", start, end);
@@ -746,7 +746,7 @@ static void NET_CL_CheckResends(void)
 {
     int i;
     int resend_start, resend_end;
-    unsigned int nowtime;
+    uint32_t nowtime;
 
     nowtime = I_GetTimeMS();
 
@@ -817,8 +817,8 @@ static void NET_CL_CheckResends(void)
 static void NET_CL_ParseGameData(net_packet_t *packet)
 {
     net_server_recv_t *recvobj;
-    unsigned int seq, num_tics;
-    unsigned int nowtime;
+    uint32_t seq, num_tics;
+    uint32_t nowtime;
     int resend_start, resend_end;
     size_t i;
     int index;
@@ -924,9 +924,9 @@ static void NET_CL_ParseGameData(net_packet_t *packet)
 
 static void NET_CL_ParseResendRequest(net_packet_t *packet)
 {
-    static unsigned int start;
-    static unsigned int end;
-    static unsigned int num_tics;
+    static uint32_t start;
+    static uint32_t end;
+    static uint32_t num_tics;
 
     if (drone)
     {
@@ -1030,7 +1030,7 @@ static void NET_CL_ParseCheat(net_packet_t* packet)
 
 static void NET_CL_ParsePacket(net_packet_t *packet)
 {
-    unsigned int packet_type;
+    uint32_t packet_type;
 
     if (!NET_ReadInt16(packet, &packet_type))
     {

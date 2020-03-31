@@ -49,7 +49,7 @@
 #pragma warning(disable:4996)
 
 typedef unsigned char byte;
-typedef unsigned short word;
+typedef uint16_t word;
 typedef int32_t int32;
 typedef uint32_t uint32;
 typedef uint32_t uint;
@@ -79,6 +79,7 @@ uint WGen_Swap32(unsigned int x);
 #define _PAD8(x)	x += (8 - ((uint) x & 7)) & 7
 #define _PAD16(x)	x += (16 - ((uint) x & 15)) & 15
 
+[[noreturn]]
 void WGen_WadgenMain();
 void WGen_Printf(const char *s, ...);
 void WGen_Complain(const char *fmt, ...);
